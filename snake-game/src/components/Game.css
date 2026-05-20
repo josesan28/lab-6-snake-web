@@ -1,0 +1,145 @@
+.game-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 24px;
+  user-select: none;
+}
+
+.game-header {
+  text-align: center;
+}
+
+.game-title {
+  font-family: 'Orbitron', monospace;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--green);
+  text-shadow: 0 0 20px var(--green-glow), 0 0 60px var(--green-glow);
+  letter-spacing: 0.4em;
+}
+
+.game-subtitle {
+  color: var(--text-dim);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  margin-top: 4px;
+}
+
+.board-container {
+  position: relative;
+}
+
+/* Overlay */
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 10, 15, 0.82);
+  backdrop-filter: blur(2px);
+  z-index: 10;
+}
+
+.overlay-dead {
+  background: rgba(10, 10, 15, 0.9);
+}
+
+.overlay-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.overlay-hint {
+  color: var(--text);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  animation: blink 1.4s step-end infinite;
+}
+
+.overlay-keys {
+  color: var(--text-dim);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+.overlay-title {
+  font-family: 'Orbitron', monospace;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--red);
+  text-shadow: 0 0 20px rgba(255, 34, 68, 0.6);
+  letter-spacing: 0.2em;
+  animation: glitch 0.4s infinite;
+}
+
+.overlay-score {
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+}
+
+.restart-btn {
+  margin-top: 8px;
+  background: transparent;
+  border: 1px solid var(--green-dim);
+  color: var(--green);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  padding: 10px 24px;
+  cursor: pointer;
+  letter-spacing: 0.1em;
+  transition: all 0.2s ease;
+}
+
+.restart-btn:hover {
+  background: var(--green);
+  color: var(--bg);
+  box-shadow: 0 0 20px var(--green-glow);
+}
+
+.controls-hint {
+  color: var(--text-dim);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  opacity: 0.6;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes glitch {
+  0%   { text-shadow: 0 0 20px rgba(255,34,68,0.6); transform: translateX(0); }
+  20%  { text-shadow: -2px 0 var(--red), 2px 0 rgba(57,255,20,0.4); transform: translateX(-1px); }
+  40%  { text-shadow: 2px 0 var(--red); transform: translateX(1px); }
+  60%  { text-shadow: 0 0 20px rgba(255,34,68,0.6); transform: translateX(0); }
+  100% { text-shadow: 0 0 20px rgba(255,34,68,0.6); transform: translateX(0); }
+}
+
+.overlay-logo {
+  font-size: 2.5rem;
+  animation: float 2s ease-in-out infinite;
+}
+
+.overlay-record {
+  color: var(--amber);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  animation: blink 0.8s step-end infinite;
+}
+
+.overlay-score span {
+  color: var(--green);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
