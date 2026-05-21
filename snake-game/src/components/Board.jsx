@@ -1,4 +1,4 @@
-import Snake from './Snake.jsx'
+import Snake from './Snake'
 import Food from './Food'
 import './Board.css'
 

@@ -1,8 +1,10 @@
+import { useSnakeGame } from '../hooks/useSnakeGame'
 import Board from './Board'
 import Score from './Score'
 import './Game.css'
 
 function Game() {
+  const { snake, food, score, highScore, status, level, restart } = useSnakeGame()
 
   return (
     <div className="game-wrapper">
@@ -18,8 +20,14 @@ function Game() {
         {status === 'idle' && (
           <div className="overlay">
             <div className="overlay-content">
-              <div className="overlay-logo">🐍</div>
-              <p className="overlay-hint">Presiona una tecla de flecha para comenzar</p>
+              <div className="overlay-logo">
+                <img 
+                  src="/snake-icon.png" 
+                  alt="Snake icon"
+                  className="snake-icon"
+                />
+              </div>
+              <p className="overlay-hint">presiona una tecla de flecha para comenzar</p>
               <p className="overlay-keys">← ↑ ↓ → &nbsp;o&nbsp; W A S D</p>
             </div>
           </div>
@@ -29,19 +37,19 @@ function Game() {
           <div className="overlay overlay-dead">
             <div className="overlay-content">
               <p className="overlay-title">GAME OVER</p>
-              <p className="overlay-score">puntuación final: <span>{score}</span></p>
+              <p className="overlay-score">puntaje final: <span>{score}</span></p>
               {score > 0 && score >= highScore && (
                 <p className="overlay-record">★ nuevo record! ★</p>
               )}
               <button className="restart-btn" onClick={restart}>
-                [ JUGAR DE NUEVO ]
+                [ JUGAR OTRA VEZ ]
               </button>
             </div>
           </div>
         )}
       </div>
 
-      <p className="controls-hint">usa las teclas de flecha o WASD · come el alimento para crecer · evita las paredes</p>
+      <p className="controls-hint">usa las teclas de flecha o WASD · come galletas para crecer · evita las paredes</p>
     </div>
   )
 }

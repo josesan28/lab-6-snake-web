@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
-  padding: 24px;
+  gap: 16px;
+  padding: 32px 24px;
   user-select: none;
 }
 
@@ -12,134 +12,156 @@
 }
 
 .game-title {
-  font-family: 'Orbitron', monospace;
-  font-size: 2.5rem;
-  font-weight: 900;
-  color: var(--green);
-  text-shadow: 0 0 20px var(--green-glow), 0 0 60px var(--green-glow);
-  letter-spacing: 0.4em;
+  font-family: 'Lora', serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--brown-dark);
+  letter-spacing: 0.12em;
 }
 
 .game-subtitle {
   color: var(--text-dim);
   font-size: 0.7rem;
-  letter-spacing: 0.2em;
-  margin-top: 4px;
+  font-weight: 300;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  margin-top: 6px;
 }
 
 .board-container {
   position: relative;
+  border-radius: 3px;
+  overflow: hidden;
 }
 
-/* Overlay */
 .overlay {
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(10, 10, 15, 0.82);
-  backdrop-filter: blur(2px);
+  background: rgba(245, 237, 224, 0.88);
+  backdrop-filter: blur(6px);
   z-index: 10;
-}
-
-.overlay-dead {
-  background: rgba(10, 10, 15, 0.9);
 }
 
 .overlay-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   text-align: center;
+  padding: 32px;
+}
+
+.overlay-logo {
+  font-size: 2.2rem;
+  animation: float 3s ease-in-out infinite;
+  margin-bottom: 4px;
 }
 
 .overlay-hint {
   color: var(--text);
-  font-size: 0.85rem;
-  letter-spacing: 0.05em;
-  animation: blink 1.4s step-end infinite;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
 }
 
 .overlay-keys {
   color: var(--text-dim);
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
+  font-size: 0.72rem;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 6px 16px;
+  border-radius: 2px;
 }
 
 .overlay-title {
-  font-family: 'Orbitron', monospace;
-  font-size: 2rem;
-  font-weight: 900;
-  color: var(--red);
-  text-shadow: 0 0 20px rgba(255, 34, 68, 0.6);
-  letter-spacing: 0.2em;
-  animation: glitch 0.4s infinite;
+  font-family: 'Lora', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--rose);
+  letter-spacing: 0.1em;
 }
 
 .overlay-score {
-  color: var(--text-dim);
+  color: var(--text-mid);
   font-size: 0.8rem;
+  font-weight: 300;
   letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.overlay-score span {
+  color: var(--brown-mid);
+  font-weight: 500;
+}
+
+.overlay-record {
+  color: var(--caramel);
+  font-size: 0.72rem;
+  font-family: 'Lora', serif;
+  font-style: italic;
+  letter-spacing: 0.1em;
+  animation: soft-pulse 1.6s ease-in-out infinite;
 }
 
 .restart-btn {
-  margin-top: 8px;
+  margin-top: 6px;
   background: transparent;
-  border: 1px solid var(--green-dim);
-  color: var(--green);
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 0.85rem;
-  padding: 10px 24px;
+  border: 1px solid var(--border-soft);
+  color: var(--brown-dark);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 10px 28px;
   cursor: pointer;
-  letter-spacing: 0.1em;
-  transition: all 0.2s ease;
+  border-radius: 2px;
+  transition: all 0.3s ease;
 }
 
 .restart-btn:hover {
-  background: var(--green);
+  background: var(--brown-dark);
+  border-color: var(--brown-dark);
   color: var(--bg);
-  box-shadow: 0 0 20px var(--green-glow);
 }
 
 .controls-hint {
   color: var(--text-dim);
-  font-size: 0.65rem;
-  letter-spacing: 0.15em;
-  opacity: 0.6;
+  font-size: 0.62rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.7;
 }
 
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+.snake-icon {
+  width: 64px;
+  height: 64px;
+  filter: drop-shadow(0 4px 12px rgba(139, 69, 19, 0.3));
+  transition: transform 0.3s ease;
 }
 
-@keyframes glitch {
-  0%   { text-shadow: 0 0 20px rgba(255,34,68,0.6); transform: translateX(0); }
-  20%  { text-shadow: -2px 0 var(--red), 2px 0 rgba(57,255,20,0.4); transform: translateX(-1px); }
-  40%  { text-shadow: 2px 0 var(--red); transform: translateX(1px); }
-  60%  { text-shadow: 0 0 20px rgba(255,34,68,0.6); transform: translateX(0); }
-  100% { text-shadow: 0 0 20px rgba(255,34,68,0.6); transform: translateX(0); }
+.snake-icon:hover {
+  transform: scale(1.05);
 }
 
 .overlay-logo {
-  font-size: 2.5rem;
-  animation: float 2s ease-in-out infinite;
-}
-
-.overlay-record {
-  color: var(--amber);
-  font-size: 0.8rem;
-  letter-spacing: 0.2em;
-  animation: blink 0.8s step-end infinite;
-}
-
-.overlay-score span {
-  color: var(--green);
+  line-height: 0; 
 }
 
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
+  50%       { transform: translateY(-7px); }
+}
+
+@keyframes soft-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
 }

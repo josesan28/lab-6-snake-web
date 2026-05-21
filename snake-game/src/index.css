@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap');
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -7,18 +7,25 @@
 }
 
 :root {
-  --bg: #0a0a0f;
-  --surface: #111118;
-  --border: #1e1e2e;
-  --green: #39ff14;
-  --green-dim: #1a7a09;
-  --green-glow: rgba(57, 255, 20, 0.3);
-  --red: #ff2244;
-  --amber: #ffb300;
-  --text: #c8ffa0;
-  --text-dim: #4a6a3a;
-  --grid: 20;
-  --cell: 24px;
+  --bg:           #f5ede0;
+  --surface:      #ede0cf;
+  --surface-2:    #e4d3bc;
+  --border:       #d4bfa0;
+  --border-soft:  #c4ac8a;
+
+  --brown-dark:   #5c3d1e;
+  --brown-mid:    #8a5c30;
+  --brown-light:  #b8845a;
+  --caramel:      #c8864a;
+  --caramel-glow: rgba(140, 90, 50, 0.2);
+
+  --text:         #3d2810;
+  --text-mid:     #7a5438;
+  --text-dim:     #a87c58;
+
+  --rose:         #b85050;
+  --rose-soft:    #d4826a;
+  --sage:         #6a8c6a;
 }
 
 html, body, #root {
@@ -28,29 +35,16 @@ html, body, #root {
 
 body {
   background: var(--bg);
+  background-image:
+    radial-gradient(ellipse at 15% 15%, rgba(200, 160, 100, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 85%, rgba(180, 140, 90, 0.12) 0%, transparent 55%);
   color: var(--text);
-  font-family: 'Share Tech Mono', monospace;
+  font-family: 'DM Sans', sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
   overflow: hidden;
-}
-
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background: 
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 2px,
-      rgba(57, 255, 20, 0.015) 2px,
-      rgba(57, 255, 20, 0.015) 4px
-    );
-  pointer-events: none;
-  z-index: 100;
 }
 
 #root {
