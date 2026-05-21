@@ -1,0 +1,13 @@
+.food {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--red);
+  box-shadow: 0 0 12px var(--red), 0 0 6px var(--red);
+  z-index: 1;
+  animation: food-pulse 1s ease-in-out infinite alternate;
+}
+
+@keyframes food-pulse {
+  from { transform: scale(0.7); box-shadow: 0 0 8px var(--red); }
+  to   { transform: scale(0.9); box-shadow: 0 0 18px var(--red), 0 0 8px var(--red); }
+}
