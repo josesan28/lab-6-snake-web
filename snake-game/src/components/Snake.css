@@ -1,22 +1,115 @@
 .snake-segment {
   position: absolute;
-  border-radius: 3px;
-  transition: left 0.05s linear, top 0.05s linear;
+  box-sizing: border-box;
+  border-radius: 8px;
+  transition:
+    left 0.08s linear,
+    top 0.08s linear,
+    transform 0.08s linear,
+    box-shadow 0.08s linear,
+    filter 0.08s linear;
+  will-change: left, top;
+  overflow: hidden;
+  transform: translateZ(0);
 }
 
 .snake-head {
-  background: var(--green);
-  box-shadow: 0 0 10px var(--green), 0 0 4px var(--green);
-  z-index: 2;
-  border-radius: 4px;
+  background: linear-gradient(135deg, #9c6535 0%, #6a411f 48%, #47280f 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -2px 4px rgba(35, 18, 6, 0.28),
+    0 0 10px rgba(206, 154, 99, 0.2),
+    0 2px 5px rgba(60, 30, 10, 0.24);
+  z-index: 3;
+  position: relative;
+}
+
+.snake-head::before {
+  content: '';
+  position: absolute;
+  inset: 2px 3px auto 3px;
+  height: 34%;
+  border-radius: 8px 8px 12px 12px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.18),
+    rgba(255, 255, 255, 0.02)
+  );
+  pointer-events: none;
+}
+
+.snake-head::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 4px;
+  width: 10px;
+  height: 6px;
+  border: 2px solid rgba(244, 222, 194, 0.95);
+  border-top: 0;
+  border-radius: 0 0 12px 12px;
+  transform: translateX(-50%);
+  opacity: 0.95;
+}
+
+.snake-eye {
+  position: absolute;
+  top: 7px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #f4dec2;
+  box-shadow: 0 0 0 1px rgba(40, 20, 8, 0.2);
+}
+
+.snake-eye-left {
+  left: 5px;
+}
+
+.snake-eye-right {
+  right: 5px;
+}
+
+.snake-mouth {
+  display: none;
 }
 
 .snake-body {
-  background: var(--green-dim);
-  box-shadow: 0 0 4px rgba(57, 255, 20, 0.3);
-  border: 1px solid rgba(57, 255, 20, 0.2);
+  border: 1px solid rgba(92, 61, 30, 0.12);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.08),
+    inset 0 -2px 4px rgba(60, 30, 10, 0.15),
+    0 1px 3px rgba(60, 30, 10, 0.12);
+  filter: saturate(1.02);
 }
 
-.snake-body:nth-child(2) { background: #2db80e; }
-.snake-body:nth-child(3) { background: #259b0c; }
-.snake-body:nth-child(4) { background: #1f7f0a; }
+.snake-tail {
+  border-radius: 8px 8px 8px 4px;
+  transform: scale(0.94);
+}
+
+.dir-right {
+  border-radius: 6px 11px 11px 6px;
+}
+
+.dir-left {
+  border-radius: 11px 6px 6px 11px;
+}
+
+.dir-up {
+  border-radius: 11px 11px 6px 6px;
+}
+
+.dir-down {
+  border-radius: 6px 6px 11px 11px;
+}
+
+.snake-body.seg-1  { background: linear-gradient(135deg, #7a5430, #5f3f20); }
+.snake-body.seg-2  { background: linear-gradient(135deg, #876039, #694625); }
+.snake-body.seg-3  { background: linear-gradient(135deg, #956944, #744d2b); }
+.snake-body.seg-4  { background: linear-gradient(135deg, #a7744f, #805635); }
+.snake-body.seg-5  { background: linear-gradient(135deg, #b57f5c, #8b6040); }
+.snake-body.seg-6  { background: linear-gradient(135deg, #bf8d6b, #94654a); }
+.snake-body.seg-7  { background: linear-gradient(135deg, #c99b7b, #9e7157); }
+.snake-body.seg-8  { background: linear-gradient(135deg, #d3a88b, #a97e64); }
+.snake-body.seg-far { background: linear-gradient(135deg, #dab696, #b08a72); }

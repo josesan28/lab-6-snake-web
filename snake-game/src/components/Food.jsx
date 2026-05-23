@@ -4,7 +4,9 @@ const CELL = 24
 
 function Food({ position }) {
   return (
-    <div
+    <img
+      src="/cookie.svg"
+      alt="Cookie"
       className="food"
       style={{
         left: position.x * CELL,
