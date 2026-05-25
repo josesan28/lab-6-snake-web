@@ -10,10 +10,11 @@ function getDirection(from, to) {
   return 'up'
 }
 
-function Snake({ segments }) {
+function Snake({ segments, speed }) {
   const headDirection = getDirection(segments[1], segments[0])
   const tailIndex = segments.length - 1
   const tailDirection = getDirection(segments[tailIndex - 1], segments[tailIndex])
+  const moveDuration = `${Math.max(speed - 16, 50)}ms`
 
   return (
     <>
@@ -38,6 +39,7 @@ function Snake({ segments }) {
               top: seg.y * CELL,
               width: CELL,
               height: CELL,
+              '--snake-move-duration': moveDuration,
             }}
           >
             {isHead && (

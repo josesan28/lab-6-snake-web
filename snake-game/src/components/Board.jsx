@@ -4,10 +4,10 @@ import './Board.css'
 
 const GRID_SIZE = 20
 
-function Board({ snake, food }) {
+function Board({ snake, food, speed }) {
   return (
     <div className="board">
-      <Snake segments={snake} />
+      <Snake segments={snake} speed={speed} />
       <Food position={food} />
     </div>
   )

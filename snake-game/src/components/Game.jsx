@@ -4,7 +4,7 @@ import Score from './Score'
 import './Game.css'
 
 function Game() {
-  const { snake, food, score, highScore, status, level, restart } = useSnakeGame()
+  const { snake, food, score, highScore, status, level, speed, restart } = useSnakeGame()
 
   return (
     <div className="game-wrapper">
@@ -15,7 +15,7 @@ function Game() {
       <Score score={score} highScore={highScore} level={level} />
 
       <div className="board-container">
-        <Board snake={snake} food={food} />
+          <Board snake={snake} food={food} speed={speed} />
 
         {status === 'idle' && (
           <div className="overlay">
@@ -42,7 +42,7 @@ function Game() {
                 <p className="overlay-record">★ nuevo record! ★</p>
               )}
               <button className="restart-btn" onClick={restart}>
-                [ JUGAR OTRA VEZ ]
+                JUGAR OTRA VEZ
               </button>
             </div>
           </div>

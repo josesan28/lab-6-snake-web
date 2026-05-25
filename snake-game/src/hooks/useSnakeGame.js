@@ -138,5 +138,5 @@ export function useSnakeGame() {
     setStatus('idle')
   }, [])
 
-  return { snake, food, score, highScore, status, level: getLevel(score), restart }
+  return { snake, food, score, highScore, status, level: getLevel(score), speed, restart }
 }

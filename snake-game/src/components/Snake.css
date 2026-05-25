@@ -3,11 +3,11 @@
   box-sizing: border-box;
   border-radius: 8px;
   transition:
-    left 0.08s linear,
-    top 0.08s linear,
-    transform 0.08s linear,
-    box-shadow 0.08s linear,
-    filter 0.08s linear;
+    left var(--snake-move-duration, 120ms) linear,
+    top var(--snake-move-duration, 120ms) linear,
+    transform var(--snake-move-duration, 120ms) linear,
+    box-shadow 0.12s ease-out,
+    filter 0.12s ease-out;
   will-change: left, top;
   overflow: hidden;
   transform: translateZ(0);
