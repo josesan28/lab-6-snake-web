@@ -22,6 +22,10 @@ git clone https://github.com/josesan28/lab-6-snake-web.git
 2. Entrar a la carpeta del proyecto:
 
 ```bash
+cd lab-6-snake-web
+```
+
+```bash
 cd snake-game
 ```
 
