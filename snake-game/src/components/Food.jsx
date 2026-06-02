@@ -3,9 +3,11 @@ import './Food.css'
 const CELL = 24
 
 function Food({ position }) {
+  const cookieSrc = `${import.meta.env.BASE_URL}cookie.svg`
+
   return (
     <img
-      src="/cookie.svg"
+      src={cookieSrc}
       alt="Cookie"
       className="food"
       style={{
