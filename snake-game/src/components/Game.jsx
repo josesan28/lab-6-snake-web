@@ -5,6 +5,7 @@ import './Game.css'
 
 function Game() {
   const { snake, food, score, highScore, status, level, speed, restart } = useSnakeGame()
+  const snakeIconSrc = `${import.meta.env.BASE_URL}snake-icon.png`
 
   return (
     <div className="game-wrapper">
@@ -22,7 +23,7 @@ function Game() {
             <div className="overlay-content">
               <div className="overlay-logo">
                 <img 
-                  src="/snake-icon.png" 
+                  src={snakeIconSrc} 
                   alt="Snake icon"
                   className="snake-icon"
                 />
